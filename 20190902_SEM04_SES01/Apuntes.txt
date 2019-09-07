@@ -1,0 +1,14 @@
+Anticiparse al desbordamiento de buffer mediante una correcta elección de los tipos de datos al definir las variables.
+
+Numericos
+int: entero
+long: octal y hexadecimal
+float: decimales
+complejo: imaginarios
+
+Ollydbg: OllyDbg es un depurador de código ensamblador de 32 bits para sistemas operativos Microsoft Windows. Pone especial énfasis en el análisis del código binario, esto lo hace muy útil cuando no está disponible el código fuente del programa.
+
+String
+
+Version 3 en adelante se implementó el operador // (division entera)
+

@@ -1,0 +1,3 @@
+import notas
+
+notas.sistemaNotas()
