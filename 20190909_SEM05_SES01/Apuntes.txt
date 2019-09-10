@@ -1,0 +1,23 @@
+PROGRAMACION ORIENTADA A OBJETOS
+
+OBJETO
+Entidad abstraída de la realidad
+Entidad que permite modulizar nuestro sistema
+- Reutilizable
+- Encapsulamiento
+
+CLASES
+Empaqueta datos y funcionalidad juntos
+
+METODOS
+Funcionas propias de un objeto
+
+VARIABLE PRIVADA
+- 2 guiones abajo antes del nombre
+- Fuera del constructor
+
+VARIABLE PÚBLICA
+- Dentro del constructor
+
+GETTERS AND SETTER
+- Funciones para acceder a la variable privada
