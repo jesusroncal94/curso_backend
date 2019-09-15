@@ -1,1 +1,9 @@
-Docente: <bound method Persona.getNombre of <personas.Docente object at 0x01D191F0>>, DNI: <bound method Persona.getDni of <personas.Docente object at 0x01D191F0>>, Edad: <bound method Persona.getEdad of <personas.Docente object at 0x01D191F0>>Docente: <bound method Persona.getNombre of <personas.Docente object at 0x01D191B0>>, DNI: <bound method Persona.getDni of <personas.Docente object at 0x01D191B0>>, Edad: <bound method Persona.getEdad of <personas.Docente object at 0x01D191B0>>
+Codigo: D1, nombre completo: Jesus R., DNI: 48082945, edad: 25
+Codigo: D2, nombre completo: Juan C., DNI: 12345678, edad: 34
+Codigo: D3, nombre completo: Frank Q., DNI: 87654321, edad: 45
+Codigo: D4, nombre completo: Alfonso W., DNI: 22222222, edad: 46
+Codigo: D5, nombre completo: asfasfsas, DNI: 23432443, edad: 25
+Codigo: D6, nombre completo: cxvxcvxcv, DNI: 3242342343, edad: 34
+Codigo: D7, nombre completo: abcdef, DNI: 12345678, edad: 27
+Codigo: D8, nombre completo: poiuee ewwewe, DNI: 12345678, edad: 78
+Codigo: D9, nombre completo: ASDSADSAD, DNI: 23423434, edad: 27

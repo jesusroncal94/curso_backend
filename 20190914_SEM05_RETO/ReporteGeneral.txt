@@ -1,3 +1,16 @@
+***DOCENTES***
+Codigo: D1, nombre completo: Jesus R., DNI: 48082945, edad: 25
+Codigo: D2, nombre completo: Juan C., DNI: 12345678, edad: 34
+Codigo: D3, nombre completo: Frank Q., DNI: 87654321, edad: 45
+Codigo: D4, nombre completo: Alfonso W., DNI: 22222222, edad: 46
+Codigo: D5, nombre completo: asfasfsas, DNI: 23432443, edad: 25
+Codigo: D6, nombre completo: cxvxcvxcv, DNI: 3242342343, edad: 34
+Codigo: D7, nombre completo: abcdef, DNI: 12345678, edad: 27
+Codigo: D8, nombre completo: poiuee ewwewe, DNI: 12345678, edad: 78
+Codigo: D9, nombre completo: ASDSADSAD, DNI: 23423434, edad: 27
+
+
+***ALUMNOS***
 Codigo: A1, nombre completo: Lionel M., DNI: 44444433, edad: 33, nota mayor: 18.0, nota menor: 16.0, promedio: 17.0, notas: [16.0, 18.0]
 Codigo: A2, nombre completo: Cristiano R., DNI: 98765432, edad: 35, nota mayor: 18.0, nota menor: 15.0, promedio: 16.5, notas: [18.0, 15.0]
 Codigo: A3, nombre completo: Ronaldinho G., DNI: 99999999, edad: 40, nota mayor: 17.0, nota menor: 10.0, promedio: 13.5, notas: [17.0, 10.0]
