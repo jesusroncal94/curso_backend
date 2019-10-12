@@ -32,7 +32,7 @@ class Factura():
         cursor.execute(sql, facturas)
         self.con.commit()
         cursor.close()
-        return idFactura
+        return
 
     def guardarDetalle(self, idFactura):
         numeroProductos = int(input('¿Cuántos productos agregará en la factura?: '))

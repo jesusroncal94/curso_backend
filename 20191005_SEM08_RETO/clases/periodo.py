@@ -1,71 +1,77 @@
 from clases.conexion import Conexion
-
+import pymysql
 
 class Periodo():
-    __conn = Conexion()
-
     def __init__(self, periodo):
         self.periodo = periodo
 
     def agregarPeriodo(self, periodo):
         try:
-            sql = """INSERT INTO periodos(periodo)
-            VALUES('{}')""".format(periodo.periodo)
-            self.__conn.ejecutarSentencia(sql)
-            self.__conn.commit()
+            sql = f"""INSERT INTO periodos(periodo)
+            VALUES('{periodo.periodo}')"""
+            conexion = Conexion()
+            cliente = conexion.cliente
+            cursor = cliente.cursor()
+            cursor.execute(sql)
+            cliente.commit()
         except Exception as e:
             print(f"Error: {str(e)}")
-            self.__conn.rollback()
+            cliente.rollback()
         else:
-            self.__conn.cerrarConexion()
+            cliente.close()
 
     def listarPeriodos(self):
         try:
             sql = "SELECT * FROM periodos"
-            cursor = self.__conn.ejecutarSentencia(sql)
-            filas = cursor.fetchall()
+            self.__cursor.execute(sql)
+            filas = self.__cursor.fetchall()
             for fila in filas:
-                print("""Periodo: {} \n""".format(fila[1]))
+                print(f"ID: {str(fila[0])}, Periodo: {fila[1]} \n")
         except Exception as e:
             print(f"Error: {str(e)}")
-            self.__conn.rollback()
+            self.__cliente.rollback()
         else:
-            self.__conn.cerrarConexion()
+            self.__cliente.close()
 
     def obtenerPeriodo(self, idPeriodo):
         try:
-            sql = """SELECT * FROM periodos
-            WHERE idPeriodo = {}""".format(idPeriodo)
-            cursor = self.__conn.ejecutarSentencia(sql)
+            sql = f"""SELECT * FROM periodos
+            WHERE idPeriodo = {idPeriodo}"""
+            cursor = self.__cursor.execute(sql)
             lista = cursor.fetchone()
             periodo = Periodo(lista[1])
             return periodo
         except Exception as e:
             print(f"Error: {str(e)}")
-            self.__conn.rollback()
+            self.__cliente.rollback()
         else:
-            self.__conn.cerrarConexion()
+            self.__cliente.close()
 
     def actualizarPeriodo(self, periodo, idPeriodo):
         try:
-            sql = """UPDATE periodos SET periodo = {}
-            WHERE idPeriodo = {}""".format(periodo.periodo, idPeriodo)
-            self.__conn.ejecutarSentencia(sql)
-            self.__conn.commit
+            sql = f"UPDATE periodos SET periodo = '{periodo.periodo}' WHERE idPeriodo = '{idPeriodo}'"
+            self.__cursor.execute(sql)
+            self.__cliente.commit()
         except Exception as e:
             print(f"Error: {str(e)}")
-            self.__conn.rollback()
+            self.__cliente.rollback()
         else:
-            self.__conn.cerrarConexion()
+            self.__cliente.close()
 
     def eliminarPeriodo(self, idPeriodo):
         try:
-            sql = """DELETE FROM periodos
-            WHERE idPeriodo = {}""".format(idPeriodo)
-            self.__conn.ejecutarSentencia(sql)
-            self.__conn.commit()
+            sql = f"""DELETE FROM periodos
+            WHERE idPeriodo = {idPeriodo}"""
+            self.__cursor.execute(sql)
+            self.__cliente.commit()
         except Exception as e:
             print(f"Error: {str(e)}")
-            self.__conn.rollback()
+            self.__cliente.rollback()
         else:
-            self.__conn.cerrarConexion()
+            self.__cliente.close()
+
+periodo = Periodo("20190709")
+periodo.agregarPeriodo(periodo)
+periodo.listarPeriodos()
+periodo.actualizarPeriodo(periodo, 1)
+periodo.eliminarPeriodo(1)
