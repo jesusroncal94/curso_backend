@@ -3,17 +3,18 @@ from helpers import helper
 
 
 class Cargo():
-    def __init__(self, descripcion = None, idcargo = None):
+    def __init__(self, descripcion = None, idcargo = None, relacion = None):
         self.descripcion = descripcion
         self.idecargo = idcargo
+        self.relacion = relacion
 
     def add_cargo(self, cargo, app):
         try:
             conn = Conexion()
             query = f'''
-                    INSERT INTO cargos (descripcion, idcargo)
+                    INSERT INTO cargos (descripcion, idarea, relacion)
                     VALUES
-                    ('{cargo.descripcion}', {cargo.idarea})
+                    ('{cargo.descripcion}', {cargo.idarea}, {cargo.relacion})
                     '''
             conn.ejecutar_sentencia(query)
             conn.commit()
@@ -40,7 +41,8 @@ class Cargo():
                 diccionario_cargo = {
                     'idcargo': fila[0],
                     'descripcion': fila[1],
-                    'idarea': fila[2]}
+                    'idarea': fila[2],
+                    'relacion': fila[3]}
                 lista.append(diccionario_cargo)
             diccionario_cargos['cargos'] = lista
             message = '''Lista de cargos'''
@@ -58,7 +60,8 @@ class Cargo():
             query = f'''
                     UPDATE cargos
                     SET descripcion = '{cargo.descripcion}',
-                        idarea = {cargo.idarea}
+                        idarea = {cargo.idarea},
+                        relacion = {cargo.relacion}
                     WHERE idcargo = {idcargo}
                     '''
             conn.ejecutar_sentencia(query)
@@ -102,7 +105,8 @@ class Cargo():
             diccionario_cargo = {
                 'idcargo': fila[0],
                 'descripcion': fila[1],
-                'idarea': fila[2]}
+                'idarea': fila[2],
+                'relacion': fila[3]}
             message = f'''cargo ID: {idcargo}'''
             print(message)
             return helper.handler_response(app, 201, message, diccionario_cargo)

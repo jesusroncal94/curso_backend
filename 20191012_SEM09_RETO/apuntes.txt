@@ -1,0 +1,20 @@
+OFICIAL_ https://stackoverflow.com/questions/10047643/how-to-create-dict-with-childrens-from-dict-with-parent-id
+https://stackoverflow.com/questions/34964878/python-generate-a-dictionarytree-from-a-list-of-tuples
+
+organigrama = [
+    {'idarea': 1, 'area': "GERENCIA GENERAL", 'relacion': 0},
+    {'idarea': 2, 'area': "GERENCIA TÉCNICA", 'relacion': 1},
+    {'idarea': 3, 'area': "GERENCIA ADM Y FINANZAS", 'relacion': 1},
+    {'idarea': 4, 'area': "TIC", 'relacion': 2},
+    {'idarea': 8, 'area': "DESARROLLO", 'relacion': 4}
+]
+
+#Convertir estructura lista-diccionario a diccionario completamente
+organigrama_dict = dict((nivel['idarea'], nivel) for nivel in organigrama)
+#Recorrido y agregado de niveles (areas y subareas) a organigrama
+for nivel in organigrama:
+    if nivel['relacion'] != False:
+        parent = organigrama_dict[nivel['relacion']]
+        parent.setdefault('children', []).append(nivel)
+#Verificacion de mas niveles anidados
+organigrama = [nivel for nivel in organigrama if nivel['relacion'] == False]

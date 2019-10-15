@@ -10,6 +10,7 @@ def routes(app):
         values = request.values
         cargo.descripcion = values.get('descripcion')
         cargo.idarea = values.get('idarea')
+        cargo.peso = values.get('peso')
         return cargo.add_cargo(cargo, app)
 
     @app.route('/cargos/list', methods = ['GET'])
@@ -22,6 +23,7 @@ def routes(app):
         idcargo = values.get('idcargo')
         cargo.descripcion = values.get('descripcion')
         cargo.idarea = values.get('idarea')
+        cargo.peso = values.get('peso')
         return cargo.update_cargo(idcargo, cargo, app)
 
     @app.route('/cargos/delete', methods = ['DELETE'])
@@ -30,7 +32,7 @@ def routes(app):
         idcargo = values.get('idcargo')
         return cargo.delete_cargo(idcargo, app)
 
-    @app.route('/cargos/get/', methods = ['GET'])
+    @app.route('/cargos/get/', methods = ['POST'])
     def cargos_get():
         values = request.values
         idcargo = values.get('idcargo')

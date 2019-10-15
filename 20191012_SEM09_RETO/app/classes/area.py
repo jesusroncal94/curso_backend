@@ -2,7 +2,7 @@ from database.config import Conexion
 from helpers import helper
 
 
-class Area:
+class Area():
     def __init__(self, descripcion = None, relacion = None):
         self.descripcion = descripcion
         self.relacion = relacion

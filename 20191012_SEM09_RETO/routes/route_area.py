@@ -4,11 +4,7 @@ from app.classes.area import Area
 
 area = Area()
 
-def routes(app):
-    @app.route('/')
-    def hello_world():
-        return '<h1>Hola Pachaqtec</h1>'
-    
+def routes(app):    
     @app.route('/areas/add', methods = ['POST'])
     def areas_add():
         values = request.values
@@ -34,7 +30,7 @@ def routes(app):
         idarea = values.get('idarea')
         return area.delete_area(idarea, app)
 
-    @app.route('/areas/get/', methods = ['GET'])
+    @app.route('/areas/get/', methods = ['POST'])
     def areas_get():
         values = request.values
         idarea = values.get('idarea')
