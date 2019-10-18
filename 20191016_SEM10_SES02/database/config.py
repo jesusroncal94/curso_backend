@@ -14,9 +14,9 @@ class Conexion:
         self.default = os.getenv('DB_DEFAULT')
         self.driver = os.getenv('DB_DRIVER')
         self.host = os.getenv('DB_SERVER')
+        self.database = os.getenv('DB_NAME')
         self.user = os.getenv('DB_USER')
         self.password = os.getenv('DB_PASSWORD')
-        self.database = os.getenv('DB_NAME')
 
     def initialize(self):
         config = {
@@ -39,5 +39,5 @@ class Conexion:
 
     def model(self):
         conn = self.initialize()
-        model = Model.set_connection_resolver(conn)
-        return model
+        Model.set_connection_resolver(conn)
+        return Model
