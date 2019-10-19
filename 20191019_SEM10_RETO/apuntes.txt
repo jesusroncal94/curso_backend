@@ -1,0 +1,58 @@
+INVESTIGAR
+
+Tiempo de expiración de Token
+bcrypt ->  variante de Key schedule de Bowfish. Determinas el numero de encriptaciones sobre el String
+           y un factor de trabajo el cual determine que tan costoso sería el hecho de generar un hash.
+Json Web Token
+
+
+import jwt
+
+2 metodos
+encode -> encriptación del obejto o json
+    Parametros que recibe:
+    1. Objeto a encriptar
+    2. Palabra secreta (autofirmar)
+    3. Tipo de algoritmo 
+decode -> desencriptación
+    Parámetros que recibe:
+    1. Objeto (Json Web Token)
+    2. Palabra secreta
+
+bcrypt
+    hashpw: encriptar el String (contraseña)
+    Paramétros:
+    1. String codificado -> password.encode('utf-8)
+    2. 
+
+    checkpw
+
+CREAR MODELO
+orator make:model users -p app/models
+
+CREAR TABLA DE MIGRACION
+orator make:migration create_users_table --table=users --create
+orator make:migration create_business_table --table=business --create
+orator make:migration create_roles_table --table=roles --create
+orator make:migration create_user_roles_table --table=user_roles --create
+
+MIGRACION
+orator migrate -c database/orator.py
+
+RESETEAR MIGRACION
+orator migrate:reset -c database/orator.py
+
+CREAR SEED
+orator make:seed user_table_seeder
+
+EJECUTAR SEED
+orator db:seed -c database/orator.py
+
+
+
+
+
+
+
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6Implc3Vzcm9uY2FsOTQiLCJuYW1lIjoiSmVzdXMiLCJsYXN0X25hbWUiOiJSb25jYWwiLCJhZ2UiOjI1LCJnZW5kZXIiOiJNIiwic3RhdHVzIjowLCJ1c2VyX3JvbGUiOnsidXNlcl9yb2xlX2lkIjoxLCJidXNpbmVzc19pZCI6MSwidXNlcl9pZCI6MSwicm9sZV9pZCI6MX19.0xzCwTAcksVes2bSGXpCM1q9WHvmTO16OYIlyMCIY9g
