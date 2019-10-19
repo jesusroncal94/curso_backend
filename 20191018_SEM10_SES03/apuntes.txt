@@ -1,0 +1,28 @@
+INVESTIGAR
+
+Tiempo de expiración de Token
+bcrypt ->  variante de Key schedule de Bowfish. Determinas el numero de encriptaciones sobre el String
+           y un factor de trabajo el cual determine que tan costoso sería el hecho de generar un hash.
+Json Web Token
+
+
+import jwt
+
+2 metodos
+encode -> encriptación del obejto o json
+    Parametros que recibe:
+    1. Objeto a encriptar
+    2. Palabra secreta (autofirmar)
+    3. Tipo de algoritmo 
+decode -> desencriptación
+    Parámetros que recibe:
+    1. Objeto (Json Web Token)
+    2. Palabra secreta
+
+bcrypt
+    hashpw: encriptar el String (contraseña)
+    Paramétros:
+    1. String codificado -> password.encode('utf-8)
+    2. 
+
+    checkpw
