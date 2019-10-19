@@ -1,5 +1,7 @@
 from flask import request
 from app.controllers.user import User
+from routes.auth import route as route_auth
+from helpers import helper
 
 
 user = User()
@@ -7,6 +9,8 @@ user = User()
 
 
 def routes(app):
+    route_auth.auth(app, user)
+    
     @app.route('/users/add', methods = ['POST'])
     def users_add():
         values = request.values
@@ -18,6 +22,7 @@ def routes(app):
         return user.add_user(user, app)
 
     @app.route('/users/list', methods = ['GET'])
+    @helper.token_required
     def users_list():
         return user.list_users(app)
 

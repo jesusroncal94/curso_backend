@@ -1,9 +1,12 @@
 from helpers import helper
 from app.models.user import User as UserModel
+import jwt
 
 
 class User():
-    def __init__(self, name = None, last_name = None, age = None, gender = None, status = None):
+    def __init__(self, username = None, password = None, name = None, last_name = None, age = None, gender = None, status = None):
+        self.username = username
+        self.password = password
         self.name = name
         self.last_name = last_name
         self.age = age
@@ -91,3 +94,18 @@ class User():
             return helper.handler_response(app, 201, message, users_dict)
         except Exception as e:
             return helper.handler_response(app, 500, f'Error: {str(e)}')
+
+    def login(self, app, username, password):
+        try:
+            user_found = UserModel.where_username(username).first()
+            if user_found and user_found.password_valid(password):
+                token = jwt.encode(user_found.serialize(), helper.jwt_secret(), algorithm='HS256')
+                response = {
+                    'token': token,
+                    'data': user_found.serialize()
+                }
+                return helper.handler_response(app, 201, 'Logeado con éxito', response)
+            message = f'El usuario y/o contraseña son incorrectos: {username}'
+            return helper.handler_response(app, 401, message)
+        except Exception as e:
+            return helper.handler_response(app, 500, f'{str(e)}')

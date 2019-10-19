@@ -9,10 +9,12 @@ class CreateUsersTable(Migration):
         """
         with self.schema.create('users') as table:
             table.increments('id')
-            table.string('name', 50)
-            table.string('last_name', 50)
+            table.string('username')
+            table.string('password')
+            table.string('name')
+            table.string('last_name')
             table.integer('age')
-            table.char('gender', 1)
+            table.string('gender')
             table.integer('status')
             table.nullable_timestamps()
 

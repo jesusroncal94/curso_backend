@@ -13,11 +13,11 @@ user = {
 def routes(app):
     @app.route('/autorizado')
     def autorizado():
+        token = request.headers.get('token')
         password = 'yisus'
-        token = request.values.get('token')
         #result = jwt.decode(token, password)
         result = bcrypt.checkpw(password.encode('utf-8'), token.encode('utf-8'))
-        return {'check': result}
+        return f'check: {result}'
 
     @app.route('/noautorizado')
     def no_autorizado():
