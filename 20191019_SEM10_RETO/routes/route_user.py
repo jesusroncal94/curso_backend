@@ -13,6 +13,7 @@ def routes(app):
     
     @app.route('/users/add', methods = ['POST'])
     @helper.token_required
+    @helper.role_supervisor
     def users_add():
         values = request.values
         user.username = values.get('username')
@@ -26,11 +27,13 @@ def routes(app):
 
     @app.route('/users/list', methods = ['GET'])
     @helper.token_required
+    @helper.role_supervisor
     def users_list():
         return user.list_users(app)
 
     @app.route('/users/update', methods = ['PUT'])
     @helper.token_required
+    @helper.role_supervisor
     def users_update():
         values = request.values
         user_id = values.get('user_id')
@@ -45,6 +48,7 @@ def routes(app):
 
     @app.route('/users/delete', methods = ['DELETE'])
     @helper.token_required
+    @helper.role_supervisor
     def users_delete():
         values = request.values
         user_id = values.get('user_id')
@@ -52,6 +56,7 @@ def routes(app):
 
     @app.route('/users/find', methods = ['POST'])
     @helper.token_required
+    @helper.role_supervisor
     def users_find():
         values = request.values
         user_id = values.get('user_id')
@@ -60,6 +65,7 @@ def routes(app):
 
     @app.route('/users/gender_age_range_user', methods = ['POST'])
     @helper.token_required
+    @helper.role_supervisor
     def users_find_gender_age_range_user():
         values = request.values
         user_gender = values.get('gender')

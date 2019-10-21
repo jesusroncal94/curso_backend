@@ -112,7 +112,6 @@ class User():
             user_role_found = User_roleModel.where('user_id', user_dict['user_id']).first()
             user_dict['user_role'] = user_role_found.serialize()
             
-            
             if user_found and user_found.password_valid(password):
                 token = jwt.encode(user_dict, helper.jwt_secret(), algorithm='HS256')
                 response = {

@@ -10,6 +10,7 @@ user_role = User_role()
 def routes(app):
     @app.route('/user_roles/add', methods = ['POST'])
     @helper.token_required
+    @helper.role_gerente
     def user_roles_add():
         values = request.values
         user_role.business_id = values.get('business_id')
@@ -19,11 +20,13 @@ def routes(app):
 
     @app.route('/user_roles/list', methods = ['GET'])
     @helper.token_required
+    @helper.role_supervisor
     def user_roles_list():
         return user_role.list_user_roles(app)
 
     @app.route('/user_roles/update', methods = ['PUT'])
     @helper.token_required
+    @helper.role_gerente
     def user_roles_update():
         values = request.values
         user_role_id = values.get('user_role_id')
@@ -34,6 +37,7 @@ def routes(app):
 
     @app.route('/user_roles/delete', methods = ['DELETE'])
     @helper.token_required
+    @helper.role_gerente
     def user_roles_delete():
         values = request.values
         user_role_id = values.get('user_role_id')
@@ -41,6 +45,7 @@ def routes(app):
 
     @app.route('/user_roles/find', methods = ['GET'])
     @helper.token_required
+    @helper.role_supervisor
     def user_roles_find():
         values = request.values
         user_role_id = values.get('user_role_id')

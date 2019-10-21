@@ -1,7 +1,7 @@
 from flask import Flask
 from dotenv import load_dotenv
 from pathlib import Path
-from routes import route_index, route_business, route_role, route_user, route_user_role, route_error, route_prueba
+from routes import route_index, route_business, route_role, route_user, route_user_role, route_invoice, route_error, route_prueba
 
 
 env_path = Path('.') / '.env'
@@ -13,6 +13,7 @@ route_business.routes(app)
 route_user.routes(app)
 route_role.routes(app)
 route_user_role.routes(app)
+route_invoice.routes(app)
 route_error.error_handler(app)
 route_prueba.routes(app)
 

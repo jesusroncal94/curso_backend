@@ -10,6 +10,7 @@ role = Role()
 def routes(app):
     @app.route('/roles/add', methods = ['POST'])
     @helper.token_required
+    @helper.role_gerente
     def roles_add():
         values = request.values
         role.name = values.get('name')
@@ -18,11 +19,13 @@ def routes(app):
 
     @app.route('/roles/list', methods = ['GET'])
     @helper.token_required
+    @helper.role_supervisor
     def roles_list():
         return role.list_roles(app)
 
     @app.route('/roles/update', methods = ['PUT'])
     @helper.token_required
+    @helper.role_gerente
     def roles_update():
         values = request.values
         role_id = values.get('role_id')
@@ -32,6 +35,7 @@ def routes(app):
 
     @app.route('/roles/delete', methods = ['DELETE'])
     @helper.token_required
+    @helper.role_gerente
     def roles_delete():
         values = request.values
         role_id = values.get('role_id')
@@ -39,6 +43,7 @@ def routes(app):
 
     @app.route('/roles/find', methods = ['POST'])
     @helper.token_required
+    @helper.role_supervisor
     def roles_find():
         values = request.values
         role_id = values.get('role_id')

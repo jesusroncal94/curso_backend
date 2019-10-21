@@ -24,7 +24,7 @@ class Factura():
         fechaFactura = date.today()
         #OBTENER EL SUBTOTAL DE LA FACTURA
         subtotalFactura = self.guardarDetalle(idFactura)
-        igvFactura = subtotalFactura / 1.18
+        igvFactura = subtotalFactura * 0.18
         totalFactura = subtotalFactura + igvFactura
         sql = 'INSERT INTO facturas(idFactura, fechaFactura, subtotalFactura, igvFactura, totalFactura) VALUES(%s, %s, %s, %s, %s)'
         facturas = (0, fechaFactura, subtotalFactura, igvFactura, totalFactura)

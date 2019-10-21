@@ -35,6 +35,7 @@ orator make:migration create_users_table --table=users --create
 orator make:migration create_business_table --table=business --create
 orator make:migration create_roles_table --table=roles --create
 orator make:migration create_user_roles_table --table=user_roles --create
+orator make:migration create_products_table --table=products --create
 
 MIGRACION
 orator migrate -c database/orator.py
@@ -47,12 +48,3 @@ orator make:seed user_table_seeder
 
 EJECUTAR SEED
 orator db:seed -c database/orator.py
-
-
-
-
-
-
-
-
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6Implc3Vzcm9uY2FsOTQiLCJuYW1lIjoiSmVzdXMiLCJsYXN0X25hbWUiOiJSb25jYWwiLCJhZ2UiOjI1LCJnZW5kZXIiOiJNIiwic3RhdHVzIjowLCJ1c2VyX3JvbGUiOnsidXNlcl9yb2xlX2lkIjoxLCJidXNpbmVzc19pZCI6MSwidXNlcl9pZCI6MSwicm9sZV9pZCI6MX19.0xzCwTAcksVes2bSGXpCM1q9WHvmTO16OYIlyMCIY9g
